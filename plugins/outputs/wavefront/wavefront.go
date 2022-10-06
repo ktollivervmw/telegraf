@@ -4,6 +4,7 @@ package wavefront
 import (
 	_ "embed"
 	"fmt"
+	httpconfig "github.com/influxdata/telegraf/plugins/common/http"
 	"net/url"
 	"regexp"
 	"strings"
@@ -36,6 +37,8 @@ type Wavefront struct {
 	ImmediateFlush       bool                            `toml:"immediate_flush"`
 	SourceOverride       []string                        `toml:"source_override"`
 	StringToNumber       map[string][]map[string]float64 `toml:"string_to_number" deprecated:"1.9.0;use the enum processor instead"`
+
+	httpconfig.HTTPClientConfig
 
 	sender wavefront.Sender
 	Log    telegraf.Logger `toml:"-"`

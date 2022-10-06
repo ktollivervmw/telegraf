@@ -2,6 +2,8 @@ module github.com/influxdata/telegraf
 
 go 1.19
 
+replace github.com/wavefronthq/wavefront-sdk-go v0.10.4 => "../wavefront-sdk-go"
+
 require (
 	cloud.google.com/go/bigquery v1.40.0
 	cloud.google.com/go/monitoring v1.5.0
